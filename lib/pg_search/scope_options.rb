@@ -17,7 +17,6 @@ module PgSearch
       scope
         .joins(rank_join(rank_table_alias))
         .order("#{rank_table_alias}.rank DESC, #{order_within_rank}")
-        .extend(DisableEagerLoading)
         .extend(WithPgSearchRank)
         .extend(WithPgSearchHighlight[feature_for(:tsearch)])
     end
